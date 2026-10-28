@@ -1,0 +1,91 @@
+﻿@page
+@model RealPersonalBlog.Pages.BlogModel
+@{
+    ViewData["Title"]= "My Blog";
+}
+<section class="blog-section">
+    <div class="section-heading">
+        <p class="eyebrow">Personal JOURNEY</p>
+        <h1>ALL Blog Posts</h1>
+        <p>
+            thoughts, relearning, unlearning, experiences, life facts directly from dogfather
+        </p>
+    </div>
+    <div class="blog-grid">
+
+        @if (Model.Posts.Count == 0)
+        {
+            <p>No published articles yet, Check back soon!</p>
+        }
+        else
+        }
+        @foreach(var post in Model.Posts)
+        {
+                    <article class="blog-card">
+                    <div class="post-content">
+                        <p class="post-category">
+                            @post.Category
+                        </p>
+                        <h2>
+                            @post.Title
+                        </h2>
+                        <p>Content</p>
+
+                        <p>
+                            Published:
+                            @post.PublishedDate.("ddMMyyyy")
+
+                        </p>
+
+                    </div>
+
+                </article>
+        }
+
+            
+        }
+        <article class="blog-card">
+            <div class="post-content">
+                <p class="position-static category">HOW TO NEVER LOSE</p>
+                <h2>
+                    LEARNING AND Unlearning the disfunctional culture living in nigeria
+                </h2>
+                <p>
+                    Everything you were told from birth is a lie, find your own truth or perish
+                </p>
+            </div>
+        </article>
+
+        <article class="blog-card">
+            <div class="post-content">
+                <p class="post-category">THESTYLES</p>
+
+
+                <h2>Learn through pain and chaos</h2>
+
+                <p>
+
+                    A little sprinkle of sea salt can randomly save your life, stay spiritual
+                </p>
+
+            </div>
+        </article>
+
+
+        <article class="blog-card">
+            <div class="post-content">
+                <p class="post-category"> THE MOVE
+
+                </p>
+
+                <h2>
+                    What i learned through life, living in nigeria 
+                </h2>
+                <p>
+                    Collection of what i gathered living amongst weak people and lesser men showed me how dangerous they can truly be if left unchecked
+                </p>
+            </div>
+
+        </article>
+    </div>
+</section>

@@ -1,0 +1,104 @@
+﻿@page
+@model RealPersonalBlog.Pages.Admin.CreateModel
+@{
+    ViewData["Title"] = "Write a Blog Post";
+}
+
+<section class="admin-section">
+    <div class="admin-heading">
+        <p class="eyebrow">BlOG ADMINISTRATION</p>
+        <h1> Write a new Article</h1>
+
+
+        <p>
+            Capture your thoughts and share your stories with everyone. 
+        </p>
+
+    </div>
+
+    <form method="post" class="blog-form">
+
+        <div asp-validation-summary="ModelOnly"
+        class="validation-error"></div>
+
+        <div class="form-group">
+            <label asp-for="Input.Title">
+                Article Title
+            </label>
+
+            <input asp-for="Input.Title"
+            class="form-control"
+            placeholder="Enter your article title"/>
+
+            <span asp-validation-for="Input.Title"
+            class="validation-error">
+        </span>
+
+        </div>
+        <div class="form-group">
+            <label asp-for="Input.Category">
+                Category
+            </label>
+
+            <select asp-for="Input"
+                    class="form-control">
+        <option value="">Choose a category
+
+        </option>
+
+        <option value="Personal Growth">Personal Growth</option>
+        <option value="Lifestyle">Lifestyle</option>
+
+        <option value="The Journey">The journey</option>
+        <option value="Technology">Technology</option>
+        
+        <option value="Other">Other</option>
+
+        </select>
+
+        <span asp-validation-for="Input.Category"
+        class="validation-error">
+    </span>
+
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Input.content">
+                Article Content
+            </label>
+
+            <textarea asp-for="Input.content"
+            class="form-control article-textarea"
+            placeholder="Start writing your article here..."
+
+            rows="12"></textarea>
+
+
+            <span asp-validation-for="Input.content"
+            class="validation-error">
+        </span>
+
+        </div>
+
+        <div class="publish-option">
+            <input asp-for="Input.Ispublished" type="checkbox"/>
+        
+
+                <label asp-for="Input.Ispublished">
+                    Publish this article immediately
+                </label>
+                </div>
+
+                <button type="submit" class="button">
+                    Save article
+                </button>
+
+                <a asp-page="/Blog" class="cancel-link">
+                    Cancle</a>
+        
+    </form>
+
+</section>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}
